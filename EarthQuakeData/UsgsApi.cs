@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
+using static EarthQuakeData.Utils;
 
 namespace EarthQuakeData;
 
@@ -17,8 +18,8 @@ public sealed class UsgsApi : DataProvider
 
     public override void GetMostRecentData()
     {
-        string today = Utils.GenerateTodayYesterdayDate().Item1;
-        string yesterday = Utils.GenerateTodayYesterdayDate().Item2;
+        string today = GenerateTodayYesterdayDate().Item1;
+        string yesterday = GenerateTodayYesterdayDate().Item2;
 
 
         var req = new RestRequest(Url + $"query?format=geojson&starttime={yesterday}&endtime={today}");
@@ -38,6 +39,7 @@ public sealed class UsgsApi : DataProvider
 
     public override void GetDataByTimeRange(string startTime, string endTime)
     {
+        ////TODO Compare
         bool validDates = CompareDates(startTime, endTime);
 
         if (validDates)
@@ -79,25 +81,5 @@ public sealed class UsgsApi : DataProvider
         var response = HttpClient.ExecuteAsync(req);
 
         Console.WriteLine($"req response: {response.Result.Content}");
-    }
-
-
-    private bool CompareDates(string s, string endTime1)
-    {
-        DateTime start = DateTime.ParseExact(s, "yyyy-MM-dd", null);
-        DateTime end = DateTime.ParseExact(endTime1, "yyyy-MM-dd", null);
-        int res = DateTime.Compare(start, end);
-        if (res < 0)
-        {
-            return true;
-        }
-        else if (res > 0)
-        {
-            Console.WriteLine("Start time should be earlier than end time");
-            return false;
-        }
-
-        Console.WriteLine("Start time should be earlier than end time");
-        return false;
     }
 }
