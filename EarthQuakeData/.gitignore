@@ -1,0 +1,41 @@
+﻿# Binaries
+**/bin/
+**/obj/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+x64/
+build/
+[Bb]uildLogs/
+
+# NuGet Packages
+**/packages/
+!.nuget/
+
+# Visual Studio files
+**/.vs/
+.vscode
+
+# User-specific files
+**/*.user  
+**/*.suo   
+
+# Resharper files  
+_ReSharper.*
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Project files
+**/*.csproj.user
+
+# Local settings
+App.config
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# Rider files
+**/*.idea
