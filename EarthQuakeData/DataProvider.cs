@@ -34,6 +34,7 @@ public abstract class DataProvider
         XmlDocument doc = new XmlDocument();
         doc.LoadXml(xml.ToString());
         doc.Save("test.xml");
+        Console.WriteLine("Converted successfully");
         
         // Convert the XML element to string
         return xml.ToString();
