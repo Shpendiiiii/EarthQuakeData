@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using static EarthQuakeData.Utils;
 
@@ -72,14 +73,17 @@ public sealed class UsgsApi : DataProvider
         }
     }
 
-
-    public override void GetDataByOtherQualifiers(string alertLevel = "red")
+    public override JObject GetDataByOtherQualifiers(string alertLevel = "red")
     {
         var req = new RestRequest(Url + $"query?format=geojson&alertlevel={alertLevel}");
         Console.WriteLine($"url: Url + query?format=geojson&alertlevel={alertLevel}");
 
         var response = HttpClient.ExecuteAsync(req);
-
-        Console.WriteLine($"req response: {response.Result.Content}");
+        var responseDes = JsonConvert.DeserializeObject<dynamic>(response.Result.Content);
+        // Console.WriteLine($"req response: {response.Result.Content}");
+        // Console.WriteLine(responseDes);
+        return responseDes;
     }
+    
+    
 }

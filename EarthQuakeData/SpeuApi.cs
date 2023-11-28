@@ -49,12 +49,14 @@ public sealed class SpeuApi : DataProvider
     }
     
     //returns data by min magnitude
-    public override void GetDataByOtherQualifiers(string inputData)
+    public override dynamic GetDataByOtherQualifiers(string inputData)
     {
         var req = new RestRequest(Url + $"query?format=json&minmag={inputData}&limit=20000");
         Console.WriteLine($"url: {Url + $"query?format=json&minmag={inputData}&limit=20000"}");
         var response = HttpClient.ExecuteAsync(req);
 
         Console.WriteLine(response.Result.Content);
+
+        return response.Result.Content;
     }
 }
