@@ -9,11 +9,12 @@ public sealed class UsgsApi : DataProvider
 {
     public override string Url { get; init; }
 
-    public UsgsApi()
+    public UsgsApi(IDataConverter dataConverter)
     {
         // Cannot be empty
         Url = Wrapper.ConfigConfiguration()["url_base_paths:usgs:base"] ?? string.Empty;
         HttpClient = InitHttpClient();
+        DataConverter = dataConverter;
     }
 
 
@@ -84,6 +85,10 @@ public sealed class UsgsApi : DataProvider
         // Console.WriteLine(responseDes);
         return responseDes;
     }
-    
+
+    public override void XmlConversion(dynamic data)
+    {
+        DataConverter.ConvertToXml(data);
+    }
     
 }

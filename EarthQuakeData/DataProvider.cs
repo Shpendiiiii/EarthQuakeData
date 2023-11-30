@@ -22,9 +22,9 @@ public abstract class DataProvider
 
     public abstract void GetDataByTimeRange(string startTime, string endTime);
     public abstract dynamic GetDataByOtherQualifiers(string inputData);
-    
+    public abstract void XmlConversion(dynamic data);
 
-    
+
 }
 
 

@@ -7,11 +7,13 @@ using EarthQuakeData;
 
 
 
-DataProvider firstUsgs = new UsgsApi();
+DataProvider firstUsgs = new UsgsApi(new XmlDataConverter());
 
 // firstUsgs.GetMostRecentData();
 
 dynamic info = firstUsgs.GetDataByOtherQualifiers("yellow");
+firstUsgs.XmlConversion(info);
+
 
 
 // firstUsgs.GetDataByTimeRange(startTime: "2023-11-04", endTime: "2023-11-05");

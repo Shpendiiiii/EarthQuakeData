@@ -4,22 +4,22 @@ using Newtonsoft.Json.Linq;
 
 namespace EarthQuakeData;
 
-public class DataConverter : IDataConverter
+public class XmlDataConverter : IDataConverter
 {
-    public void Convert(dynamic data)
+    public void ConvertToXml(dynamic data)
     {
-        XElement xml = new XElement("root");
+            XElement xml = new XElement("root");
 
-        // Populate the XML element with JSON data
-        AddJsonToXml(xml, data);
-        
-        XmlDocument doc = new XmlDocument();
-        doc.LoadXml(xml.ToString());
-        doc.Save("test.xml");
-        Console.WriteLine("Converted successfully");
+            // Populate the XML element with JSON data
+            AddJsonToXml(xml, data);
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml.ToString());
+            doc.Save("test.xml");
+            Console.WriteLine("Converted successfully");
     }
-    
-    
+
+
     static void AddJsonToXml(XElement parent, JToken json)
     {
         if (json is JObject)
@@ -45,5 +45,4 @@ public class DataConverter : IDataConverter
             parent.Add(new XText(json.ToString()));
         }
     }
-    
 }
