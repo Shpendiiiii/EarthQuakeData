@@ -1,0 +1,86 @@
+type: FeatureCollection
+metadata:
+  generated: 1701377767000
+  url: https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&alertlevel=yellow
+  title: USGS Earthquakes
+  status: 200
+  api: 1.14.0
+  count: 2
+features:
+- type: Feature
+  properties:
+    mag: 6.7
+    place: 29 km SW of Kablalan, Philippines
+    time: 1700208851870
+    updated: 1701262860623
+    tz: 
+    url: https://earthquake.usgs.gov/earthquakes/eventpage/us6000lp12
+    detail: https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000lp12&format=geojson
+    felt: 64
+    cdi: 8.6
+    mmi: 8.109
+    alert: yellow
+    status: reviewed
+    tsunami: 1
+    sig: 746
+    net: us
+    code: 6000lp12
+    ids: ',pt23321001,us6000lp12,at00s49djq,'
+    sources: ',pt,us,at,'
+    types: ',dyfi,ground-failure,impact-link,internal-origin,losspager,moment-tensor,origin,phase-data,shakemap,'
+    nst: 242
+    dmin: 1.577
+    rms: 0.91
+    gap: 21
+    magType: mww
+    type: earthquake
+    title: M 6.7 - 29 km SW of Kablalan, Philippines
+  geometry:
+    type: Point
+    coordinates:
+    - 125.0218
+    - 5.5833
+    - 64.165
+  id: us6000lp12
+- type: Feature
+  properties:
+    mag: 5.7
+    place: 44 km E of Dailekh, Nepal
+    time: 1699034576566
+    updated: 1701296852516
+    tz: 
+    url: https://earthquake.usgs.gov/earthquakes/eventpage/us7000l8p5
+    detail: https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us7000l8p5&format=geojson
+    felt: 372
+    cdi: 7.3
+    mmi: 8.076
+    alert: yellow
+    status: reviewed
+    tsunami: 0
+    sig: 922
+    net: us
+    code: 7000l8p5
+    ids: ',us7000l8p5,usauto7000l8p5,pt23307000,at00s3k7gw,'
+    sources: ',us,usauto,pt,at,'
+    types: ',dyfi,ground-failure,impact-text,internal-moment-tensor,internal-origin,losspager,moment-tensor,origin,phase-data,shakemap,'
+    nst: 232
+    dmin: 2.94
+    rms: 0.82
+    gap: 21
+    magType: mww
+    type: earthquake
+    title: M 5.7 - 44 km E of Dailekh, Nepal
+  geometry:
+    type: Point
+    coordinates:
+    - 82.1633
+    - 28.8518
+    - 32.602
+  id: us7000l8p5
+bbox:
+- 82.1633
+- 5.5833
+- 32.602
+- 125.0218
+- 28.8518
+- 64.165
