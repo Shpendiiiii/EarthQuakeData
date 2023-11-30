@@ -88,7 +88,12 @@ public sealed class UsgsApi : DataProvider
 
     public override void XmlConversion(dynamic data)
     {
-        DataConverter.ConvertToXml(data);
+        DataConverter.Convert(data);
+    }
+
+    public override void YmlConversion(dynamic data)
+    {
+        DataConverter.Convert(data);
     }
     
 }

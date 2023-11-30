@@ -10,6 +10,7 @@ public abstract class DataProvider
     public abstract string Url { get; init; }
     protected RestClient HttpClient { get; init; }
 
+    //TODO Apply Dependecy Inversion
     protected RestClient InitHttpClient()
     {
         RestClient client = new RestClient(Url);
@@ -25,7 +26,11 @@ public abstract class DataProvider
     public abstract void XmlConversion(dynamic data);
 
 
+    public abstract void YmlConversion(dynamic data);
+    // public abstract void YmlConversion(string data);
 }
 
 
 // TODO: WriteToFile to JSON File method;
+
+//TODO change the signature of the methods;

@@ -13,6 +13,12 @@
       <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
       <PackageReference Include="RestSharp" Version="110.2.1-alpha.0.16" />
+      <PackageReference Include="YamlDotNet" Version="13.7.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Outputs\Xml\" />
+      <Folder Include="Outputs\Yml\" />
     </ItemGroup>
 
 </Project>

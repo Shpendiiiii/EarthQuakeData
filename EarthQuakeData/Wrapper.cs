@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System.Reflection;
+using Microsoft.Extensions.Configuration;
 
 namespace EarthQuakeData;
 
@@ -7,11 +8,10 @@ public class Wrapper
     public static IConfiguration ConfigConfiguration()
     {
         
-        string basePath = Directory.GetCurrentDirectory();
-        string appSettingsPath = Path.Combine(basePath, "../../../appsettings.json");
         
         IConfiguration config = new ConfigurationBuilder()
-            .AddJsonFile(appSettingsPath)
+            .SetBasePath(Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location), "..", "..", ".."))
+            .AddJsonFile("appsettings.json")
             .Build();
 
         return config;

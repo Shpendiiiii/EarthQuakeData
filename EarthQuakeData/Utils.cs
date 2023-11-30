@@ -1,8 +1,13 @@
 ﻿//Utility classes for specific needs
+
+using System.Reflection;
+
 namespace EarthQuakeData;
 
 public static class Utils
 {
+    public static string UDPath =
+        Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location), "..", "..", "..");
     public static Tuple<string, string> GenerateTodayYesterdayDate()
     {
         // Format the dates as strings in the "yyyy-MM-dd" format

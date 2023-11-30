@@ -5,7 +5,7 @@ using EarthQuakeData;
 
 // Console.WriteLine(Wrapper.ConfigConfiguration()["url_base_paths:usgs:base"]);
 
-
+Console.WriteLine("path: " + Utils.UDPath);
 
 DataProvider firstUsgs = new UsgsApi(new XmlDataConverter());
 
@@ -13,6 +13,8 @@ DataProvider firstUsgs = new UsgsApi(new XmlDataConverter());
 
 dynamic info = firstUsgs.GetDataByOtherQualifiers("yellow");
 firstUsgs.XmlConversion(info);
+firstUsgs = new UsgsApi(new YmlDataConverter());
+firstUsgs.YmlConversion(info);
 
 
 

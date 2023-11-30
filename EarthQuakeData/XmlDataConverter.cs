@@ -1,12 +1,12 @@
 ﻿using System.Xml;
 using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
-
+using static EarthQuakeData.Utils;
 namespace EarthQuakeData;
 
 public class XmlDataConverter : IDataConverter
 {
-    public void ConvertToXml(dynamic data)
+    public void Convert(dynamic data)
     {
             XElement xml = new XElement("root");
 
@@ -15,7 +15,9 @@ public class XmlDataConverter : IDataConverter
 
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xml.ToString());
-            doc.Save("test.xml");
+
+            string outputPath = UDPath + $"/Outputs/Xml/test{DateTimeOffset.UtcNow.ToUnixTimeSeconds()}.xml";
+            doc.Save(outputPath);
             Console.WriteLine("Converted successfully");
     }
 
