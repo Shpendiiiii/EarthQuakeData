@@ -13,9 +13,6 @@ DataProvider firstUsgs = new UsgsApi();
 
 dynamic info = firstUsgs.GetDataByOtherQualifiers("yellow");
 
-string xml = firstUsgs.XmlConversion(info);
-
-Console.WriteLine(xml);
 
 // firstUsgs.GetDataByTimeRange(startTime: "2023-11-04", endTime: "2023-11-05");
 
