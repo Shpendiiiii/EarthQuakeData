@@ -6,7 +6,7 @@ namespace EarthQuakeData;
 
 public static class Utils
 {
-    public static string UDPath =
+    public static readonly string UDPath =
         Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location), "..", "..", "..");
     public static Tuple<string, string> GenerateTodayYesterdayDate()
     {
