@@ -1,21 +1,29 @@
-﻿using System.Threading.Channels;
-using EarthQuakeData;
+﻿using EarthQuakeData;
+using Newtonsoft.Json.Linq;
+using RestSharp;
 
 
+RestClient client = new RestClient();
 
-// Console.WriteLine(Wrapper.ConfigConfiguration()["url_base_paths:usgs:base"]);
+DataProvider firstUsgs = new UsgsApi(new XmlDataConverter(), client);
 
-
-
-DataProvider firstUsgs = new UsgsApi();
-
-// firstUsgs.GetMostRecentData();
 
 dynamic info = firstUsgs.GetDataByOtherQualifiers("yellow");
+firstUsgs.XmlConversion(info);
+firstUsgs = new UsgsApi(new YmlDataConverter(), client);
+firstUsgs.YmlConversion(info);
 
-string xml = firstUsgs.XmlConversion(info);
+JObject recentEarthQuakeData = firstUsgs.GetMostRecentData();
+firstUsgs.YmlConversion(recentEarthQuakeData);
 
-Console.WriteLine(xml);
+
+DataProvider speuFirst = new SpeuApi(new YmlDataConverter(), client);
+
+dynamic magData = speuFirst.GetDataByOtherQualifiers("6");
+speuFirst.YmlConversion(magData);
+
+
+
 
 // firstUsgs.GetDataByTimeRange(startTime: "2023-11-04", endTime: "2023-11-05");
 
@@ -31,3 +39,7 @@ Console.WriteLine(xml);
 // firstSPEU.GetDataByTimeRange("2023-11-26", "2023-11-28");
 
 // firstSPEU.GetDataByOtherQualifiers("6");
+
+
+Console.WriteLine(Directory.GetCurrentDirectory());
+Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);

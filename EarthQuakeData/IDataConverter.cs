@@ -2,5 +2,5 @@
 
 public interface IDataConverter
 {
-    void Convert();
+    void Convert(dynamic data);
 }
