@@ -11,7 +11,6 @@ public sealed class UsgsApi : DataProvider
 
     public UsgsApi(IDataConverter dataConverter, RestClient client)
     {
-        // Cannot be empty
         Url = Wrapper.ConfigConfiguration()["url_base_paths:usgs:base"]!;
         HttpClient = client;
         DataConverter = dataConverter;

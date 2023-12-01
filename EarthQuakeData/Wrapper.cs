@@ -8,7 +8,8 @@ public class Wrapper
     public static IConfiguration ConfigConfiguration()
     {
         IConfiguration config = new ConfigurationBuilder()
-            .SetBasePath(Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location), "..", "..", ".."))
+            // .SetBasePath(Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location), "..", "..", ".."))
+            .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json")
             .Build();
 

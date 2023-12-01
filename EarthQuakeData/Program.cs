@@ -39,3 +39,6 @@ speuFirst.YmlConversion(magData);
 // firstSPEU.GetDataByTimeRange("2023-11-26", "2023-11-28");
 
 // firstSPEU.GetDataByOtherQualifiers("6");
+
+
+Console.WriteLine(Directory.GetCurrentDirectory());
