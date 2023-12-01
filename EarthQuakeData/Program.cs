@@ -42,3 +42,4 @@ speuFirst.YmlConversion(magData);
 
 
 Console.WriteLine(Directory.GetCurrentDirectory());
+Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
