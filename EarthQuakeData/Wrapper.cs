@@ -9,11 +9,10 @@ public class Wrapper
     {
         IConfiguration config = new ConfigurationBuilder()
             // .SetBasePath(Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location), "..", "..", ".."))
-            .SetBasePath(Directory.GetCurrentDirectory())
+            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
             .AddJsonFile("appsettings.json")
             .Build();
-
+        Console.WriteLine("App context " + Path.GetDirectoryName(System.AppContext.BaseDirectory));
         return config;
     }
-    
 }
