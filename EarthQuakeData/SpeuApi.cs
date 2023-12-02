@@ -73,13 +73,9 @@ public sealed class SpeuApi : DataProvider
         return JsonConvert.DeserializeObject<dynamic>(response.Result.Content!)!;
     }
 
-    public override void XmlConversion(dynamic data)
+    public override void FormatConversion(dynamic data)
     {
         DataConverter.Convert(data);
     }
-
-    public override void YmlConversion(dynamic data)
-    {
-        DataConverter.Convert(data);
-    }
+    
 }

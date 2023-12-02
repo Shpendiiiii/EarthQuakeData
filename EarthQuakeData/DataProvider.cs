@@ -14,6 +14,5 @@ public abstract class DataProvider
     public abstract JObject GetDataByLocation(string longitude, string latitude);
     public abstract dynamic GetDataByTimeRange(string startTime, string endTime);
     public abstract dynamic GetDataByOtherQualifiers(string inputData);
-    public abstract void XmlConversion(dynamic data);
-    public abstract void YmlConversion(dynamic data);
+    public abstract void FormatConversion(dynamic data);
 }
