@@ -5,6 +5,7 @@ using static EarthQuakeData.Utils;
 
 namespace EarthQuakeData;
 
+//Refined abstraction that derives from DataProviders abstraction
 public sealed class UsgsApi : DataProvider
 {
     public override string Url { get; init; }

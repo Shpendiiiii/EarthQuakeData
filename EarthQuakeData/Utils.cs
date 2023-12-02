@@ -6,10 +6,10 @@ namespace EarthQuakeData;
 
 public static class Utils
 {
-    // public static readonly string UDPath =
-    //     Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location), "..", "..", "..");
-
+    //Static field which holds the base path that will output the final conversion in the Outputs/ directory
     public static readonly string UDPath = Directory.GetCurrentDirectory();
+
+    //This utility method returns the today and yesterday's date in a tuple
     public static Tuple<string, string> GenerateTodayYesterdayDate()
     {
         // Format the dates as strings in the "yyyy-MM-dd" format
@@ -23,6 +23,7 @@ public static class Utils
         return recentDates;
     }
 
+    //Utility method that is used throughout to compare dates, whether the start is earlier than the end time
     public static bool CompareDates(string s, string endTime1)
     {
         DateTime start = DateTime.ParseExact(s, "yyyy-MM-dd", null);
