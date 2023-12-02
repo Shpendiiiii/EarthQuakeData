@@ -19,7 +19,7 @@ public class YmlDataConverter : IDataConverter
         File.WriteAllText(outputPath, yamlString);
     }
     
-    public static string ConvertJsonToYaml(JObject jsonInput)
+    private static string ConvertJsonToYaml(JObject jsonInput)
     {
         // Deserialize JSON to an object
         var jsonString = jsonInput.ToString(); 

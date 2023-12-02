@@ -9,16 +9,15 @@ public sealed class UsgsApi : DataProvider
 {
     public override string Url { get; init; }
 
-    public UsgsApi(IDataConverter dataConverter)
+    public UsgsApi(IDataConverter dataConverter, RestClient client)
     {
-        // Cannot be empty
-        Url = Wrapper.ConfigConfiguration()["url_base_paths:usgs:base"] ?? string.Empty;
-        HttpClient = InitHttpClient();
+        Url = Wrapper.ConfigConfiguration()["url_base_paths:usgs:base"]!;
+        HttpClient = client;
         DataConverter = dataConverter;
     }
 
 
-    public override void GetMostRecentData()
+    public override JObject GetMostRecentData()
     {
         string today = GenerateTodayYesterdayDate().Item1;
         string yesterday = GenerateTodayYesterdayDate().Item2;
@@ -29,19 +28,22 @@ public sealed class UsgsApi : DataProvider
         var response = HttpClient.ExecuteAsync(req);
 
         Console.WriteLine($"req response: {response.Result.Content}");
+        
+        return JsonConvert.DeserializeObject<dynamic>(response.Result.Content!)!;
     }
 
-    public override void GetDataByLocation(string longitude, string latitude)
+    public override JObject GetDataByLocation(string longitude, string latitude)
     {
         var req = new RestRequest(Url + $"query?format=geojson&minlongitude={longitude}&minlatitude={latitude}");
         var response = HttpClient.ExecuteAsync(req);
 
         Console.WriteLine($"req response: {response.Result.Content}");
+        
+        return JsonConvert.DeserializeObject<dynamic>(response.Result.Content!)!;
     }
 
-    public override void GetDataByTimeRange(string startTime, string endTime)
+    public override dynamic GetDataByTimeRange(string startTime, string endTime)
     {
-        ////TODO Compare
         bool validDates = CompareDates(startTime, endTime);
 
         if (validDates)
@@ -64,14 +66,20 @@ public sealed class UsgsApi : DataProvider
                     req = new RestRequest(Url + $"query?format=geojson&starttime={startTime}&endtime={endTime}");
                     response = HttpClient.ExecuteAsync(req);
                     Console.WriteLine($"req response: {response.Result.Content}");
+
+                    return JsonConvert.DeserializeObject<dynamic>(response.Result.Content!)!;
                 }
                 else
                 {
                     Console.WriteLine(
                         "The USGS API does not allow for queries that result in more than 20,000 results. Shorten the time range.");
+
+                    return 0;
                 }
             }
         }
+
+        return 0;
     }
 
     public override JObject GetDataByOtherQualifiers(string alertLevel = "red")
