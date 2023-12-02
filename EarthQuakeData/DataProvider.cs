@@ -7,11 +7,12 @@ namespace EarthQuakeData;
 public abstract class DataProvider
 {
     //Reference to the implementor
-    public IDataConverter DataConverter { get; set; }
+    public IDataConverter DataConverter { get; set; } = null!;
+
     //Prop to hold the base url of the APIs
     public abstract string Url { get; init; }
     //HTTP Client to make requests with
-    protected RestClient HttpClient { get; init; }
+    protected RestClient HttpClient { get; init; } = null!;
     public abstract JObject GetMostRecentData();
     public abstract JObject GetDataByLocation(string longitude, string latitude);
     public abstract dynamic GetDataByTimeRange(string startTime, string endTime);

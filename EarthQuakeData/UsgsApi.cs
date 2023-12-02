@@ -103,10 +103,10 @@ public sealed class UsgsApi : DataProvider
         Console.WriteLine($"url: Url + query?format=geojson&alertlevel={alertLevel}");
 
         var response = HttpClient.ExecuteAsync(req);
-        var responseDes = JsonConvert.DeserializeObject<dynamic>(response.Result.Content);
+        var responseDes = JsonConvert.DeserializeObject<dynamic>(response.Result.Content!);
         // Console.WriteLine($"req response: {response.Result.Content}");
         // Console.WriteLine(responseDes);
-        return responseDes;
+        return responseDes!;
     }
     
     //Method that uses the concrete implementor object to convert data based on the object passed
