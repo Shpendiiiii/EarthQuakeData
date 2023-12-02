@@ -12,3 +12,7 @@
 
 ## Do not run the project from an IDE directly without changing the working directory to EarthQuakeData/EarthQuakeData
 ### Running it from the terminal is less hassle
+
+
+### If neither works, pull the docker image:
+## docker pull shpendiiiii/final-eqd:latest

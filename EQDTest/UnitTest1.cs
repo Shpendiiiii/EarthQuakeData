@@ -9,7 +9,6 @@ public class Tests
     [SetUp]
     public void Setup()
     {
-        RestClient httpClient = new RestClient();
     }
 
     [Test]
@@ -23,7 +22,7 @@ public class Tests
     }
     
     [Test]
-    public void Test2()
+    public void UsgsApi_GetMostRecentData_ReturnsJObject()
     {
         RestClient httpClient = new RestClient();
 
@@ -35,7 +34,7 @@ public class Tests
     }
 
     [Test]
-    public void Test3()
+    public void SpeuApi_GetMostRecentData_ReturnsJObject()
     {
         RestClient httpClient = new RestClient();
 
