@@ -11,7 +11,7 @@ DataProvider firstUsgs = new UsgsApi(new XmlDataConverter());
 
 // firstUsgs.GetMostRecentData();
 
-dynamic info = firstUsgs.GetDataByOtherQualifiers("yellow");
+dynamic info = firstUsgs.GetDataByOtherQualifiers("green");
 firstUsgs.XmlConversion(info);
 firstUsgs = new UsgsApi(new YmlDataConverter());
 firstUsgs.YmlConversion(info);
