@@ -10,7 +10,8 @@ public class Tests
     public void Setup()
     {
     }
-
+    
+    //Check whether the base url supplied by the appsetting.json file of the USGS is api is indeed that 
     [Test]
     public void UsgsApiBaseUrlShouldBeCorrect()
     {
@@ -21,6 +22,7 @@ public class Tests
         Assert.That(firstUsgs.Url, Is.EqualTo("https://earthquake.usgs.gov/fdsnws/event/1/"));
     }
     
+    //Test whether the GetMostRecentData method of the class UsgsApi return a JObject
     [Test]
     public void UsgsApi_GetMostRecentData_ReturnsJObject()
     {
@@ -32,7 +34,8 @@ public class Tests
         
         Assert.That(data, Is.TypeOf(typeof(JObject)));
     }
-
+    
+    //Test whether the GetMostRecentData method of the class SpeuApi return a JObject
     [Test]
     public void SpeuApi_GetMostRecentData_ReturnsJObject()
     {
@@ -45,6 +48,7 @@ public class Tests
         Assert.That(data, Is.TypeOf(typeof(JObject)));
     }
 
+    //Check whether the base url supplied by the appsetting.json file of the SPEU is api is indeed that 
     [Test]
     public void SepuApiBaseUrlShouldBeCorrect()
     {
@@ -54,7 +58,8 @@ public class Tests
 
         Assert.That(firstUsgs.Url, Is.EqualTo("https://www.seismicportal.eu/fdsnws/event/1/"));
     }
-
+    
+    //Test whether the GetDataByOtherQualifiers method of the class SpeuApi return a JObject when passed the argument, "5"
     [Test]
     public void GetDataByOtherQualifiers_ReturnsJObjectForQualifier5()
     {
@@ -66,5 +71,4 @@ public class Tests
         
         Assert.That(data, Is.TypeOf(typeof(JObject)));
     }
-   //TODO meaningful names for tests 
 }

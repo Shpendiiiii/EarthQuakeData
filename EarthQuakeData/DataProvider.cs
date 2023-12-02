@@ -15,7 +15,7 @@ public abstract class DataProvider
     public abstract JObject GetMostRecentData();
     public abstract JObject GetDataByLocation(string longitude, string latitude);
     public abstract dynamic GetDataByTimeRange(string startTime, string endTime);
-    //Qulifiers are unique to the specific APIs
+    //Qualifiers are unique to the specific APIs
     public abstract dynamic GetDataByOtherQualifiers(string inputData);
     //This will use the object of IDataConverter to make converision
     public abstract void FormatConversion(dynamic data);

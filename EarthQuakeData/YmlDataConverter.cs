@@ -7,17 +7,22 @@ using static EarthQuakeData.Utils;
 
 namespace EarthQuakeData;
 
+//Concrete implementor that converts JSON to YML
 public class YmlDataConverter : IDataConverter
 {
+    //After calling the ConvertJsonToYaml(), the returned value is used to write it into
+    //a yml file
+    //same logic for naming and outputting as the XmlDataConverter
     public void Convert(dynamic data)
     {
         string yamlString = ConvertJsonToYaml(data);
-
-        Console.WriteLine(yamlString);
+        
         string outputPath = UDPath + $"/Outputs/Yml/test{DateTimeOffset.UtcNow.ToUnixTimeSeconds()}.yml";
         File.WriteAllText(outputPath, yamlString);
     }
     
+    /*Converts the JSON to YML using library methods. It takes in a JSON Object, turns it into a
+     string, deserializes it into a string, and then it is serialized into YML string, which is then returned*/
     private static string ConvertJsonToYaml(JObject jsonInput)
     {
         // Deserialize JSON to an object
