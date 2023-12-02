@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
 using YamlDotNet.Serialization;
 using static EarthQuakeData.Utils;
 
@@ -26,7 +25,7 @@ public class YmlDataConverter : IDataConverter
         JsonConvert.DeserializeObject<object>(jsonString);
         var expConverter = new ExpandoObjectConverter();
         
-        dynamic deserializedObject = JsonConvert.DeserializeObject<ExpandoObject>(jsonString, expConverter)!;
+        var deserializedObject = JsonConvert.DeserializeObject<ExpandoObject>(jsonString, expConverter)!;
         
         // Create a YamlDotNet serializer
         var serializer = new SerializerBuilder().Build();
