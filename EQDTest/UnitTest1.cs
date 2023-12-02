@@ -9,10 +9,11 @@ public class Tests
     [SetUp]
     public void Setup()
     {
+        RestClient httpClient = new RestClient();
     }
 
     [Test]
-    public void Test1()
+    public void UsgsApiBaseUrlShouldBeCorrect()
     {
         RestClient httpClient = new RestClient();
 
@@ -32,5 +33,39 @@ public class Tests
         
         Assert.That(data, Is.TypeOf(typeof(JObject)));
     }
-    
+
+    [Test]
+    public void Test3()
+    {
+        RestClient httpClient = new RestClient();
+
+        DataProvider firtSpeu = new SpeuApi(new XmlDataConverter(), httpClient);
+
+        JObject data = firtSpeu.GetMostRecentData();
+        
+        Assert.That(data, Is.TypeOf(typeof(JObject)));
+    }
+
+    [Test]
+    public void SepuApiBaseUrlShouldBeCorrect()
+    {
+        RestClient httpClient = new RestClient();
+        
+        DataProvider firstUsgs = new SpeuApi(new YmlDataConverter(), httpClient);
+
+        Assert.That(firstUsgs.Url, Is.EqualTo("https://www.seismicportal.eu/fdsnws/event/1/"));
+    }
+
+    [Test]
+    public void GetDataByOtherQualifiers_ReturnsJObjectForQualifier5()
+    {
+        RestClient httpClient = new RestClient();
+        
+        DataProvider firstSpeu = new SpeuApi(new YmlDataConverter(), httpClient);
+
+        JObject data = firstSpeu.GetDataByOtherQualifiers("5");
+        
+        Assert.That(data, Is.TypeOf(typeof(JObject)));
+    }
+   //TODO meaningful names for tests 
 }
