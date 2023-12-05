@@ -8,19 +8,11 @@ RestClient client = new RestClient();
 DataProvider firstUsgs = new UsgsApi(new XmlDataConverter(), client);
 
 
-dynamic info = firstUsgs.GetDataByOtherQualifiers("yellow");
-firstUsgs.XmlConversion(info);
+dynamic info = firstUsgs.GetDataByOtherQualifiers("green");
+firstUsgs.FormatConversion(info);
 firstUsgs = new UsgsApi(new YmlDataConverter(), client);
-firstUsgs.YmlConversion(info);
+firstUsgs.FormatConversion(info);
 
-JObject recentEarthQuakeData = firstUsgs.GetMostRecentData();
-firstUsgs.YmlConversion(recentEarthQuakeData);
-
-
-DataProvider speuFirst = new SpeuApi(new YmlDataConverter(), client);
-
-dynamic magData = speuFirst.GetDataByOtherQualifiers("6");
-speuFirst.YmlConversion(magData);
 
 
 

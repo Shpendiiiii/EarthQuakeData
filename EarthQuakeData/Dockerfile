@@ -14,3 +14,4 @@ COPY appsettings.json /app/
 COPY Outputs /app/Outputs
 
 ENTRYPOINT ["dotnet", "EarthQuakeData.dll"]
+#docker build -t image-name -f Dockerfile .

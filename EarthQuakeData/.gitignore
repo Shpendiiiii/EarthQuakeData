@@ -39,3 +39,6 @@ Thumbs.db
 
 # Rider files
 **/*.idea
+../.idea/*
+
+Outputs/*
