@@ -3,7 +3,7 @@
 namespace EarthQuakeData;
 
 //Contains a utility method
-public class Wrapper
+public class ConfigurationClass
 {
     //This method return an IConfiguration object that lets me access the appsettings.json file to read the base urls of the api
     public static IConfiguration ConfigConfiguration()

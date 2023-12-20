@@ -14,7 +14,7 @@ public sealed class SpeuApi : DataProvider
 
     public SpeuApi(IDataConverter dataConverter, RestClient client)
     {
-        Url = Wrapper.ConfigConfiguration()["url_base_paths:speu:base"]!;
+        Url = ConfigurationClass.ConfigConfiguration()["url_base_paths:speu:base"]!;
         //set HttpClient to an instance of RestClient
         HttpClient = client;
         //set DataConverter prop to an instance of IDataConverter implementor
@@ -31,7 +31,7 @@ public sealed class SpeuApi : DataProvider
         Console.WriteLine($"url: {Url + $"query?format=json&start={yesterday}&end={today}"}");
         var response = HttpClient.ExecuteAsync(req);
 
-        Console.WriteLine($"req response: {response.Result.Content}");
+        // Console.WriteLine($"req response: {response.Result.Content}");
 
         return JsonConvert.DeserializeObject<dynamic>(response.Result.Content!)!;
     }

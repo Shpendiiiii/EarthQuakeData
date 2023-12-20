@@ -14,7 +14,7 @@ public sealed class UsgsApi : DataProvider
 
     public UsgsApi(IDataConverter dataConverter, RestClient client)
     {
-        Url = Wrapper.ConfigConfiguration()["url_base_paths:usgs:base"]!;
+        Url = ConfigurationClass.ConfigConfiguration()["url_base_paths:usgs:base"]!;
         //set HttpClient to an instance of RestClient
         HttpClient = client;
         //set DataConverter prop to an instance of IDataConverter implementor passed in the constructor
@@ -32,9 +32,7 @@ public sealed class UsgsApi : DataProvider
         var req = new RestRequest(Url + $"query?format=geojson&starttime={yesterday}&endtime={today}");
         Console.WriteLine($"url: {Url + $"query/?format=geojson&starttime={yesterday}&endtime={today}"}");
         var response = HttpClient.ExecuteAsync(req);
-
-        Console.WriteLine($"req response: {response.Result.Content}");
-
+        
         return JsonConvert.DeserializeObject<dynamic>(response.Result.Content!)!;
     }
     
@@ -97,7 +95,7 @@ public sealed class UsgsApi : DataProvider
 
     //this method makes requests to the api to return data based on the severity of the 
     //earthquake, the alertLevel can be red, yellow, or green
-    public override JObject GetDataByOtherQualifiers(string alertLevel = "red")
+    public override JObject GetDataByOtherQualifiers(string alertLevel)
     {
         var req = new RestRequest(Url + $"query?format=geojson&alertlevel={alertLevel}");
         Console.WriteLine($"url: Url + query?format=geojson&alertlevel={alertLevel}");
