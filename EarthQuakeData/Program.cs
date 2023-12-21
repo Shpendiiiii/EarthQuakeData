@@ -16,10 +16,12 @@ while (true){
         }
 
         Console.Write("\nEnter your command: ");
-        string userInput = Console.ReadLine() ?? throw new InvalidOperationException();
+        string userInput = string.IsNullOrWhiteSpace(Console.ReadLine()) ? "ReturnAllFromUsgs" : Console.ReadLine().Trim();
+
 
         Console.WriteLine("\nChoose your format: ");
-        string userFormat = Console.ReadLine().ToString().Trim().ToLower() ?? throw new InvalidOperationException();
+        string userFormat = string.IsNullOrEmpty((Console.ReadLine() ?? "").Trim().ToLower()) ? "yml" : (Console.ReadLine() ?? "").Trim().ToLower();
+
         if (userFormat == "xml")
         {
             format = new XmlDataConverter();
