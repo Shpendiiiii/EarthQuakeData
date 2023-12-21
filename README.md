@@ -8,7 +8,7 @@
 ### About the APIs
 I am using the USGS and SPEU public APIs to query for earthquake data.
 
----
+
 #### USGS
 The USGS is "is a science bureau within the United States Department of the Interior (https://www.doi.gov/) ." They have a public API that provides data on earthquake data.
 
@@ -20,7 +20,7 @@ The SPEU is a website that from the EU that offers a public API as well on earth
 
 API link: https://www.seismicportal.eu/
 
----
+
 ## Bridge Pattern
 
 Is a versatile pattern that allows for separation of concerns, facilitates independent development among different teams to create platform or vendor agnostic products.
@@ -33,7 +33,7 @@ The code looks clear, and enterprise worthy. The bridge pattern when used correc
 
 I used the Command patter.
 
----
+
 ## Command Pattern
 Is a pattern that takes a request and turns it into an object. This provides a fantastic way to introduce commands to your system, because it eliminates long chains of ```if``` and ```switch```  statements. Making for clean code.
 
@@ -41,7 +41,7 @@ In this project, the command interface provides an execute method, whereby the c
 
 The available commands are stored in an enum called **CommandTypes** when the user types the command, the system looks for the type (the proper class), and instantiates that class dynamically.   The instantiated class calls the methods of the class that can make calls to the APIs. Thus the command part and api-call part of the system are separated.
 
----
+
 
 #### Additional notes
 I also use a utility class with static methods that are useful to the system.
@@ -50,11 +50,11 @@ The base API urls are stored in *appsettings.json*, so that if they are changed 
 
 The docker image is there just for fun. If you want to run, I dockerized it in Linux. If you want to run the docker image when the project only had the Bridge pattern, go to the provided link for the dockerhub image.
 
----
+
 
 ## Prequisites to run
 1. .NET 8.0 SDK
-   1. Download link: ```https://dotnet.microsoft.com/en-us/download/dotnet/8.0```
+   1. Download link: https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 2. If using Visual Studio, update to the latest version, 17.8
 
 ## Installation
