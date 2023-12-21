@@ -31,7 +31,7 @@ I then used the concrete implementors to take the returned JSON and convert it i
 
 The code looks clear, and enterprise worthy. The bridge pattern when used correctly facilities using other patterns with it in tandem.
 
-I used the Command patter.
+I used the Command pattern.
 
 
 ## Command Pattern
@@ -64,9 +64,13 @@ The docker image is there just for fun. If you want to run, I dockerized it in L
 4. ```dotnet build```
 5. ```dotnet run```
 
-## Do not run the project from an IDE directly without changing the working directory to EarthQuakeData/EarthQuakeData
+### Do not run the project from an IDE directly without changing the working directory to EarthQuakeData/EarthQuakeData
 ### Running it from the terminal is less hassle
 
 
 ### If neither works, pull the docker image:
 #### ```docker pull shpendiiiii/final-eqd:latest```
+
+
+
+#### Contact me for additional questions: ```shpendaliu@pm.me```
