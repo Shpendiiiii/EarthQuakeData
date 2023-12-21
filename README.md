@@ -1,4 +1,4 @@
-﻿### Prequisties
+﻿### Prequisites to run
 1. .NET 8.0 SDK
    1. Download link: ```https://dotnet.microsoft.com/en-us/download/dotnet/8.0```
 2. If using Visual Studio, update to the latest version, 17.8
