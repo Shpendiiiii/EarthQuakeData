@@ -42,9 +42,6 @@ public sealed class UsgsApi : DataProvider
     {
         var req = new RestRequest(Url + $"query?format=geojson&minlongitude={longitude}&minlatitude={latitude}");
         var response = HttpClient.ExecuteAsync(req);
-
-        Console.WriteLine($"req response: {response.Result.Content}");
-
         return JsonConvert.DeserializeObject<dynamic>(response.Result.Content!)!;
     }
     
@@ -62,8 +59,7 @@ public sealed class UsgsApi : DataProvider
             var req = new RestRequest(Url + $"count?format=geojson&starttime={startTime}&endtime={endTime}");
             Console.WriteLine($"url: {Url + $"count/?format=geojson&starttime={startTime}&endtime={endTime}"}");
             var response = HttpClient.ExecuteAsync(req);
-
-            Console.WriteLine($"req response: {response}");
+            
             // string count = response.Result.Content["count"];
             if (response.Result.Content != null)
             {
@@ -76,7 +72,6 @@ public sealed class UsgsApi : DataProvider
 
                     req = new RestRequest(Url + $"query?format=geojson&starttime={startTime}&endtime={endTime}");
                     response = HttpClient.ExecuteAsync(req);
-                    Console.WriteLine($"req response: {response.Result.Content}");
 
                     return JsonConvert.DeserializeObject<dynamic>(response.Result.Content!)!;
                 }

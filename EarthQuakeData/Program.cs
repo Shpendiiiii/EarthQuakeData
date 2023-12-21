@@ -7,10 +7,10 @@ while (true){
         RestClient httpClient = new RestClient();
         dynamic format;
         // Assuming the user input is mapped to the enum correctly
-        Console.WriteLine($"Available commands: ");
+        Console.WriteLine($"\nAvailable commands: ");
         foreach (var value in Enum.GetValues(typeof(CommandTypes)))
         {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(value);
             Console.ResetColor();
         }

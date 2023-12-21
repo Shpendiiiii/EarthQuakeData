@@ -22,8 +22,9 @@ public class XmlDataConverter : IDataConverter
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xml.ToString());
 
-            string outputPath = UDPath + $"/Outputs/Xml/test{DateTimeOffset.UtcNow.ToUnixTimeSeconds()}.xml";
+            string outputPath = UDPath + $"/Outputs/Xml/test{DateTime.Now.ToString("yyyy-MM-dd--HH:mm:ss")}.xml";
             doc.Save(outputPath);
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Converted JSON to XML successfully");
     }
 

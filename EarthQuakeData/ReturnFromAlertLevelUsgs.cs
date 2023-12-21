@@ -18,13 +18,12 @@ public class ReturnFromAlertLevelUsgs : ICommand
         ReturnAll();
     }
     
-    public JObject ReturnAll()
+    public void ReturnAll()
     {
         DataProvider firstUsgs = new UsgsApi(dataConverter, httpClient);
         Console.Write("Enter the alert level (red, green, yellow): ");
         string qualifier = Console.ReadLine().Trim().ToLower();
         JObject info = firstUsgs.GetDataByOtherQualifiers(qualifier);
         firstUsgs.FormatConversion(info);
-        return info;
     }
 }

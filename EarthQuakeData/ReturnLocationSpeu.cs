@@ -3,12 +3,12 @@ using RestSharp;
 
 namespace EarthQuakeData;
 
-public class ReturnAllFromSpeu : ICommand
+public class ReturnLocationSpeu : ICommand
 {
     protected RestClient httpClient;
     protected dynamic dataConverter;
-    
-    public ReturnAllFromSpeu(RestClient _httpClient, dynamic _dataConverter)
+
+    public ReturnLocationSpeu(RestClient _httpClient, dynamic _dataConverter)
     {
         httpClient = _httpClient;
         dataConverter = _dataConverter;
@@ -22,8 +22,11 @@ public class ReturnAllFromSpeu : ICommand
     public void ReturnAll()
     {
         DataProvider speuObj = new SpeuApi(dataConverter, httpClient);
-        JObject info = speuObj.GetMostRecentData();
+        Console.Write("Enter longitude: ");
+        string longitude = Console.ReadLine()!.Trim().ToLower();
+        Console.Write("Enter latitude: ");
+        string latitude = Console.ReadLine()!.Trim().ToLower();
+        JObject info = speuObj.GetDataByLocation(longitude, latitude);
         speuObj.FormatConversion(info);
     }
-    
 }

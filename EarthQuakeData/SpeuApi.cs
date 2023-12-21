@@ -42,9 +42,6 @@ public sealed class SpeuApi : DataProvider
     {
         var req = new RestRequest(Url + $"query?format=json&lon={longitude}&lat={latitude}&limit=100");
         var response = HttpClient.ExecuteAsync(req);
-
-        Console.WriteLine($"req response: {response.Result.Content}");
-
         return JsonConvert.DeserializeObject<dynamic>(response.Result.Content!)!;
     }
     

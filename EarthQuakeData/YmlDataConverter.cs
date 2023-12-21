@@ -17,8 +17,11 @@ public class YmlDataConverter : IDataConverter
     {
         string yamlString = ConvertJsonToYaml(data);
         
-        string outputPath = UDPath + $"/Outputs/Yml/test{DateTimeOffset.UtcNow.ToUnixTimeSeconds()}.yml";
+        string outputPath = UDPath + $"/Outputs/Yml/test{DateTime.Now.ToString("yyyy-MM-dd--HH:mm:ss")}.yml";
         File.WriteAllText(outputPath, yamlString);
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("Converted JSON to YML successfully");
+        Console.ResetColor();
     }
     
     /*Converts the JSON to YML using library methods. It takes in a JSON Object, turns it into a
