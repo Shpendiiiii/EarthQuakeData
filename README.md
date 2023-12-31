@@ -68,9 +68,4 @@ The docker image is there just for fun. If you want to run, I dockerized it in L
 ### Running it from the terminal is less hassle
 
 
-### If neither works, pull the docker image:
-#### ```docker pull shpendiiiii/final-eqd:latest```
-
-
-
 #### Contact me for additional questions: ```shpendaliu@pm.me```
