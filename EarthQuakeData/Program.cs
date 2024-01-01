@@ -6,6 +6,7 @@ while (true){
     {
         RestClient httpClient = new RestClient();
         dynamic format;
+        string userInput;
         // Assuming the user input is mapped to the enum correctly
         Console.WriteLine($"\nAvailable commands: ");
         foreach (var value in Enum.GetValues(typeof(CommandTypes)))
@@ -16,11 +17,11 @@ while (true){
         }
 
         Console.Write("\nEnter your command: ");
-        string userInput = string.IsNullOrWhiteSpace(Console.ReadLine()) ? "ReturnAllFromUsgs" : Console.ReadLine().Trim();
+        userInput = Console.ReadLine();
 
 
-        Console.WriteLine("\nChoose your format: ");
-        string userFormat = string.IsNullOrEmpty((Console.ReadLine() ?? "").Trim().ToLower()) ? "yml" : (Console.ReadLine() ?? "").Trim().ToLower();
+        Console.Write("\nChoose your format: ");
+        string userFormat = Console.ReadLine();
 
         if (userFormat == "xml")
         {
@@ -33,8 +34,7 @@ while (true){
 
         if (Enum.TryParse(userInput, out CommandTypes userCommand))
         {
-            // Successful parsing, userCommand now holds the enum value.
-            // You can now use userCommand in your logic.
+            // Successful parsing, userCommand now holds the
             ICommand command = CommandFactory.CreateCommand(userCommand,
                 new object[] { httpClient, format })!;
             command.Execute();

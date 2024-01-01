@@ -15,6 +15,7 @@ public sealed class UsgsApi : DataProvider
     public UsgsApi(IDataConverter dataConverter, RestClient client)
     {
         Url = ConfigurationClass.ConfigConfiguration()["url_base_paths:usgs:base"]!;
+        Console.WriteLine(Url);
         //set HttpClient to an instance of RestClient
         HttpClient = client;
         //set DataConverter prop to an instance of IDataConverter implementor passed in the constructor
