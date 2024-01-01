@@ -44,7 +44,7 @@ while (true){
             // Parsing failed, handle the error, e.g., by informing the user.
             Console.WriteLine("Invalid command.");
         }
-        // This would typically come from user input
+        // This comes from user input
     }
     catch (Exception ex)
     {
