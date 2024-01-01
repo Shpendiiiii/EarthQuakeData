@@ -49,7 +49,7 @@ I also use a utility class with static methods that are useful to the system.
 The base API urls are stored in *appsettings.json*, so that if they are changed by their owners, you will only have to change them once for the system to be in sync with the API.
 
 The docker image is there just for fun. If you want to run, I dockerized it in Linux. If you want to run the docker image when the project only had the Bridge pattern, go to the provided link for the dockerhub image.
-docker pull shpendiiiii/final-eqd
+```docker pull shpendiiiii/final-eqd```
 
 
 
